@@ -225,28 +225,31 @@ a:visited{
 .panel-head{
   display: flex;
   align-items: center;
+  gap: 12px;
   margin-bottom: 2px;
 
+  /* sticky quando scrolli */
   position: sticky;
   top: 0;
   z-index: 10;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(34,26,21,.95),
-    rgba(34,26,21,.75),
-    rgba(34,26,21,0)
-  );
-  padding-top: 6px;
+  /* fondo coerente col pannello (copre il testo sotto) */
+  background: rgba(34,26,21,.92);
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  /* IMPORTANTISSIMO: taglia qualsiasi cosa “sotto” */
+  overflow: hidden;
 }
 
-/* linea che si allunga fino alla X */
+/* la linea “riempie” tutto lo spazio fino alla X */
 .panel-head::before{
-  content:"";
-  flex: 1;                 /* <-- si estende automaticamente */
+  content: "";
+  flex: 1 1 auto;          /* <-- questo è il punto */
   height: 1px;
-  background: rgba(200,161,90,.45);
-  margin-right: 8px;      /* spazio prima della X */
+  background: rgba(200,161,90,.28);  /* oro più morbido, meno “appiccicato” */
+  display: block;
+  opacity: .9;
 }
 
 .panel-title{
